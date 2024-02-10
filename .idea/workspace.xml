@@ -4,11 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc76a0f8-c763-4de2-9bba-278b87a116d7" name="Changes" comment="" />
+    <list default="true" id="fc76a0f8-c763-4de2-9bba-278b87a116d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constant/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/BaseCourier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Courier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CourierCreatedResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CourierLoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CreatedOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ListCreatedOrdersResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/MapCreatedOrderResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/OrderCreatedResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/specification/Specification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AcceptOrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CreateCourierTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CreateOrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DeleteCourierTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ListOrdersTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LoginCourierTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2cBWtsA6Qgk22reDw10mjEFHXRw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -21,6 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
@@ -32,9 +61,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707585673883</updated>
-      <workItem from="1707585675959" duration="1000" />
+      <workItem from="1707585675959" duration="885000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
