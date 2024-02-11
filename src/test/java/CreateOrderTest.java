@@ -11,6 +11,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import dto.Order;
 import dto.OrderCreatedResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;
@@ -59,6 +60,7 @@ public class CreateOrderTest {
   }
 
   @Test
+  @DisplayName("Check create order with different color of /api/v1/orders")
   @Description("корректное создание заказа с различными параметрами цвета самоката")
   public void createOrderCorrectDataThen201Created() {
     response = steps.createOrder(order)

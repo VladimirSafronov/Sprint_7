@@ -17,6 +17,7 @@ import dto.MapCreatedOrderResponse;
 import dto.Order;
 import dto.OrderCreatedResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import java.util.Map;
 import org.apache.http.HttpStatus;
 import org.junit.After;
@@ -43,6 +44,7 @@ public class GetOrderTest {
   }
 
   @Test
+  @DisplayName("Check response with correct data of /api/v1/orders/track")
   @Description("успешный запрос возвращает объект с заказом")
   public void getOrderThanReturnOrder() {
     MapCreatedOrderResponse response = steps.getOrderWithTrack(orderCreatedResponse.getTrack())
@@ -56,6 +58,7 @@ public class GetOrderTest {
   }
 
   @Test
+  @DisplayName("Check error if no track of /api/v1/orders/track")
   @Description("запрос без номера заказа возвращает ошибку")
   public void getOrderNoTrackThenError() {
     ErrorResponse response = steps.getOrderWithoutTrack()
@@ -69,6 +72,7 @@ public class GetOrderTest {
   }
 
   @Test
+  @DisplayName("Check error if not exists track of /api/v1/orders/track")
   @Description("запрос с несуществующим заказом возвращает ошибку")
   public void getOrderBadTrackThenError() {
     ErrorResponse response = steps.getOrderWithTrack((long) Integer.MAX_VALUE)

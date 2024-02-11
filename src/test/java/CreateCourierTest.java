@@ -14,6 +14,7 @@ import dto.CourierCreatedResponse;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;
@@ -46,6 +47,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check created of /api/v1/courier")
   @Description("курьера можно создать")
   public void createCourierWithCorrectDataThenCreated() {
     CourierCreatedResponse response = steps.createCourierStep(courier)
@@ -57,6 +59,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if two equals data of /api/v1/courier")
   @Description("нельзя создать двух одинаковых курьеров")
   public void createCourierWithSameDataThen409Conflict() {
     steps.createCourierStep(courier)
@@ -73,6 +76,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check created of /api/v1/courier with all required fields")
   @Description("чтобы создать курьера, нужно передать в ручку все обязательные поля")
   public void createCourierWithRequiredFieldsThen201Created() {
     courier.setFirstName(null);
@@ -85,6 +89,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check response body of /api/v1/courier")
   @Description("успешный запрос возвращает {ok:true}")
   public void createCourierWithCorrectDataThenCorrectResponseBody() {
     String response = steps.createCourierStep(courier)
@@ -97,6 +102,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if create without login of /api/v1/courier")
   @Description("если логина нет, запрос возвращает ошибку")
   public void createCourierWithoutLoginThen400BadRequest() {
     steps.createCourierStep(courier);
@@ -111,6 +117,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if create without password of /api/v1/courier")
   @Description("если пароля нет, запрос возвращает ошибку")
   public void createCourierWithoutPasswordThen400BadRequest() {
     steps.createCourierStep(courier);
@@ -126,6 +133,7 @@ public class CreateCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if create with exist login of /api/v1/courier")
   @Description("если создать пользователя с логином, который уже есть, возвращается ошибка")
   public void createCourierWithSameLoginThen409Conflict() {
     steps.createCourierStep(courier)

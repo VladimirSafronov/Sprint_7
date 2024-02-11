@@ -70,6 +70,7 @@ public class AcceptOrderTest {
   }
 
   @Test
+  @DisplayName("Check response body of /api/v1/orders/accept/:id")
   @Description("Успешный запрос возвращает ok: true")
   public void acceptOrderThenCorrectBody() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
@@ -82,6 +83,7 @@ public class AcceptOrderTest {
   }
 
   @Test
+  @DisplayName("Check error of /api/v1/orders/accept without courier id")
   @Description("если не передать id курьера, запрос вернёт ошибку")
   public void acceptOrderNoCourierIdThenError() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
@@ -96,6 +98,7 @@ public class AcceptOrderTest {
   }
 
   @Test
+  @DisplayName("Check error of /api/v1/orders/accept with wrong courier id")
   @Description("если передать неверный id курьера, запрос вернёт ошибку")
   public void acceptOrderWrongCourierIdThenError() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
@@ -110,6 +113,7 @@ public class AcceptOrderTest {
   }
 
   @Test
+  @DisplayName("Check error of /api/v1/orders/accept without order id")
   @Description("если не передать номер заказа, запрос вернёт ошибку (подставил значения кода ошибки и сообщения\n"
       + "об ошибке, чтобы тест не падал)")
   public void acceptOrderNoIdThenError() {
@@ -124,6 +128,7 @@ public class AcceptOrderTest {
   }
 
   @Test
+  @DisplayName("Check error of /api/v1/orders/accept if wrong order id")
   @Description("если передать неверный номер заказа, запрос вернёт ошибку")
   public void acceptOrderWrongOrderIdThenError() {
     ErrorResponse response = steps.acceptOrder(-1L, courierLoginResponse.getId())

@@ -12,6 +12,7 @@ import dto.Courier;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,6 +22,7 @@ public class DeleteCourierTest {
   private final Steps steps = new Steps();
 
   @Test
+  @DisplayName("Check NotFound if not exists id of /api/v1/courier/:id")
   @Description("запрос с несуществующим id возвращает соответствующую ошибку")
   public void deleteCourierWithNotExistIdThen404NotFound() {
     ErrorResponse response = steps.deleteCourierStep(-1L)
@@ -34,6 +36,7 @@ public class DeleteCourierTest {
   }
 
   @Test
+  @DisplayName("Check BadRequest if no id of /api/v1/courier/:id")
   @Description("запрос без id возвращает соответствующую ошибку (в доках иные данные)")
   public void deleteCourierWithoutIdThen400BadRequest() {
     ErrorResponse response = steps.deleteCourierStep()
@@ -47,6 +50,7 @@ public class DeleteCourierTest {
   }
 
   @Test
+  @DisplayName("Check response body of /api/v1/courier/:id")
   @Description("успешный запрос возвращает ok: true")
   public void deleteCourierThenCorrectBody() {
     long courierId = getIdCreatedCourier();

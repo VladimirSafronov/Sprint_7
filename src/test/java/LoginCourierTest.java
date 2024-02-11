@@ -6,6 +6,7 @@ import dto.Courier;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBodyExtractionOptions;
 import org.apache.http.HttpStatus;
@@ -38,6 +39,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check correct authorization of /api/v1/courier/login")
   @Description("курьер может авторизоваться")
   public void loginCourierWithCorrectDataThenLogin() {
     BaseCourier baseCourier = new BaseCourier(courier.getLogin(), courier.getPassword());
@@ -51,6 +53,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check correct authorization with required fields of /api/v1/courier/login")
   @Description("для авторизации нужно передать все обязательные поля")
   public void loginCourierWithRequiredFieldsThenLogin() {
     BaseCourier bodyWithRequiredFields = new BaseCourier(courier.getLogin(), courier.getPassword());
@@ -64,6 +67,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if not correct login of /api/v1/courier/login")
   @Description("система вернёт ошибку, если неправильно указать логин")
   public void loginWithIncorrectLoginThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
@@ -79,6 +83,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if not correct password of /api/v1/courier/login")
   @Description("система вернёт ошибку, если неправильно указать пароль")
   public void loginWithIncorrectPasswordThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
@@ -94,6 +99,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if no login of /api/v1/courier/login")
   @Description("если нет поля login, запрос возвращает ошибку")
   public void loginWithoutLoginThen400BadRequest() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
@@ -108,6 +114,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if no password of /api/v1/courier/login")
   @Description("если нет поля password, запрос возвращает ошибку")
   public void loginWithoutPasswordThen400BadRequest() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
@@ -122,6 +129,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check error if authorization not exists courier of /api/v1/courier/login")
   @Description("если авторизоваться под несуществующим пользователем, запрос возвращает ошибку")
   public void loginNotExistLoginThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
@@ -137,6 +145,7 @@ public class LoginCourierTest {
   }
 
   @Test
+  @DisplayName("Check body if correct request of /api/v1/courier/login")
   @Description("успешный запрос возвращает id")
   public void whenLoginReturnId() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
