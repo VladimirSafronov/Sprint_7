@@ -11,6 +11,7 @@ import dto.BaseCourier;
 import dto.Courier;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
+import io.qameta.allure.Description;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,10 +20,8 @@ public class DeleteCourierTest {
 
   private final Steps steps = new Steps();
 
-  /**
-   * запрос с несуществующим id возвращает соответствующую ошибку
-   */
   @Test
+  @Description("запрос с несуществующим id возвращает соответствующую ошибку")
   public void deleteCourierWithNotExistIdThen404NotFound() {
     ErrorResponse response = steps.deleteCourierStep(-1L)
         .then()
@@ -34,10 +33,8 @@ public class DeleteCourierTest {
     Assert.assertEquals(NO_COURIER_WITH_ID, response.getMessage());
   }
 
-  /**
-   * запрос без id возвращает соответствующую ошибку (в доках иные данные)
-   */
   @Test
+  @Description("запрос без id возвращает соответствующую ошибку (в доках иные данные)")
   public void deleteCourierWithoutIdThen400BadRequest() {
     ErrorResponse response = steps.deleteCourierStep()
         .then()
@@ -49,10 +46,8 @@ public class DeleteCourierTest {
     Assert.assertEquals(NO_DATA_DELETE_COURIER, response.getMessage());
   }
 
-  /**
-   * успешный запрос возвращает ok: true
-   */
   @Test
+  @Description("успешный запрос возвращает ok: true")
   public void deleteCourierThenCorrectBody() {
     long courierId = getIdCreatedCourier();
     String responseBody = steps.deleteCourierStep(courierId)

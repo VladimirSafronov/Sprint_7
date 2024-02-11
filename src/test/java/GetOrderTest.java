@@ -16,6 +16,7 @@ import dto.ErrorResponse;
 import dto.MapCreatedOrderResponse;
 import dto.Order;
 import dto.OrderCreatedResponse;
+import io.qameta.allure.Description;
 import java.util.Map;
 import org.apache.http.HttpStatus;
 import org.junit.After;
@@ -41,10 +42,8 @@ public class GetOrderTest {
     steps.cancelOrder(orderCreatedResponse.getTrack());
   }
 
-  /**
-   * успешный запрос возвращает объект с заказом
-   */
   @Test
+  @Description("успешный запрос возвращает объект с заказом")
   public void getOrderThanReturnOrder() {
     MapCreatedOrderResponse response = steps.getOrderWithTrack(orderCreatedResponse.getTrack())
         .then()
@@ -56,10 +55,8 @@ public class GetOrderTest {
         && orderData.size() >= NOT_ACCEPT_ORDER_FIELDS_COUNT);
   }
 
-  /**
-   * запрос без номера заказа возвращает ошибку
-   */
   @Test
+  @Description("запрос без номера заказа возвращает ошибку")
   public void getOrderNoTrackThenError() {
     ErrorResponse response = steps.getOrderWithoutTrack()
         .then()
@@ -71,10 +68,8 @@ public class GetOrderTest {
     Assert.assertEquals(TOO_LITTLE_DATA, response.getMessage());
   }
 
-  /**
-   * запрос с несуществующим заказом возвращает ошибку
-   */
   @Test
+  @Description("запрос с несуществующим заказом возвращает ошибку")
   public void getOrderBadTrackThenError() {
     ErrorResponse response = steps.getOrderWithTrack((long) Integer.MAX_VALUE)
         .then()

@@ -24,6 +24,8 @@ import dto.ErrorResponse;
 import dto.MapCreatedOrderResponse;
 import dto.Order;
 import dto.OrderCreatedResponse;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;
@@ -67,10 +69,8 @@ public class AcceptOrderTest {
     steps.deleteCourierStep(courierLoginResponse.getId());
   }
 
-  /**
-   * успешный запрос возвращает ok: true
-   */
   @Test
+  @Description("Успешный запрос возвращает ok: true")
   public void acceptOrderThenCorrectBody() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
     String response = steps.acceptOrder(orderId, courierLoginResponse.getId())
@@ -81,10 +81,8 @@ public class AcceptOrderTest {
     Assert.assertTrue(response.contains(SUCCESS_BODY));
   }
 
-  /**
-   * если не передать id курьера, запрос вернёт ошибку
-   */
   @Test
+  @Description("если не передать id курьера, запрос вернёт ошибку")
   public void acceptOrderNoCourierIdThenError() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
     ErrorResponse response = steps.acceptOrderNoCourierId(orderId)
@@ -97,10 +95,8 @@ public class AcceptOrderTest {
     Assert.assertEquals(TOO_LITTLE_DATA, response.getMessage());
   }
 
-  /**
-   * если передать неверный id курьера, запрос вернёт ошибку
-   */
   @Test
+  @Description("если передать неверный id курьера, запрос вернёт ошибку")
   public void acceptOrderWrongCourierIdThenError() {
     long orderId = Long.parseLong(createdOrderMap.getOrder().get("id"));
     ErrorResponse response = steps.acceptOrder(orderId, -1L)
@@ -113,11 +109,9 @@ public class AcceptOrderTest {
     Assert.assertEquals(NO_COURIER_WITH_THAT_ID, response.getMessage());
   }
 
-  /**
-   * если не передать номер заказа, запрос вернёт ошибку (подставил значения кода ошибки и сообщения
-   * об ошибке, чтобы тест не падал)
-   */
   @Test
+  @Description("если не передать номер заказа, запрос вернёт ошибку (подставил значения кода ошибки и сообщения\n"
+      + "об ошибке, чтобы тест не падал)")
   public void acceptOrderNoIdThenError() {
     ErrorResponse response = steps.acceptOrderNoOrderId(courierLoginResponse.getId())
         .then()
@@ -129,10 +123,8 @@ public class AcceptOrderTest {
     Assert.assertEquals(NO_DATA_DELETE_COURIER, response.getMessage());
   }
 
-  /**
-   * если передать неверный номер заказа, запрос вернёт ошибку
-   */
   @Test
+  @Description("если передать неверный номер заказа, запрос вернёт ошибку")
   public void acceptOrderWrongOrderIdThenError() {
     ErrorResponse response = steps.acceptOrder(-1L, courierLoginResponse.getId())
         .then()

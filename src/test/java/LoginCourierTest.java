@@ -5,6 +5,7 @@ import dto.BaseCourier;
 import dto.Courier;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBodyExtractionOptions;
 import org.apache.http.HttpStatus;
@@ -36,10 +37,8 @@ public class LoginCourierTest {
     steps.deleteCourierStep(courierLoginResponse.getId());
   }
 
-  /**
-   * курьер может авторизоваться
-   */
   @Test
+  @Description("курьер может авторизоваться")
   public void loginCourierWithCorrectDataThenLogin() {
     BaseCourier baseCourier = new BaseCourier(courier.getLogin(), courier.getPassword());
     courierLoginResponse = steps.loginCourierInSystemStep(baseCourier)
@@ -51,10 +50,8 @@ public class LoginCourierTest {
     Assert.assertNotNull(courierLoginResponse);
   }
 
-  /**
-   * для авторизации нужно передать все обязательные поля
-   */
   @Test
+  @Description("для авторизации нужно передать все обязательные поля")
   public void loginCourierWithRequiredFieldsThenLogin() {
     BaseCourier bodyWithRequiredFields = new BaseCourier(courier.getLogin(), courier.getPassword());
     Response response = steps.loginCourierInSystemStep(bodyWithRequiredFields)
@@ -66,10 +63,8 @@ public class LoginCourierTest {
     Assert.assertEquals(OK_STATUS_LINE, response.statusLine());
   }
 
-  /**
-   * система вернёт ошибку, если неправильно указать логин
-   */
   @Test
+  @Description("система вернёт ошибку, если неправильно указать логин")
   public void loginWithIncorrectLoginThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     BaseCourier incorrectLoginBody = new BaseCourier(courier.getLogin() + "a",
@@ -83,10 +78,8 @@ public class LoginCourierTest {
     Assert.assertEquals("Учетная запись не найдена", response.getMessage());
   }
 
-  /**
-   * система вернёт ошибку, если неправильно указать пароль
-   */
   @Test
+  @Description("система вернёт ошибку, если неправильно указать пароль")
   public void loginWithIncorrectPasswordThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     BaseCourier incorrectLoginBody = new BaseCourier(courier.getLogin(),
@@ -100,10 +93,8 @@ public class LoginCourierTest {
     Assert.assertEquals("Учетная запись не найдена", response.getMessage());
   }
 
-  /**
-   * если нет поля login, запрос возвращает ошибку
-   */
   @Test
+  @Description("если нет поля login, запрос возвращает ошибку")
   public void loginWithoutLoginThen400BadRequest() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     BaseCourier withoutLogin = new BaseCourier("", courier.getPassword());
@@ -116,10 +107,8 @@ public class LoginCourierTest {
     Assert.assertEquals("Недостаточно данных для входа", response.getMessage());
   }
 
-  /**
-   * если нет поля password, запрос возвращает ошибку
-   */
   @Test
+  @Description("если нет поля password, запрос возвращает ошибку")
   public void loginWithoutPasswordThen400BadRequest() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     BaseCourier withoutPassword = new BaseCourier(courier.getLogin(), "");
@@ -132,10 +121,8 @@ public class LoginCourierTest {
     Assert.assertEquals("Недостаточно данных для входа", response.getMessage());
   }
 
-  /**
-   * если авторизоваться под несуществующим пользователем, запрос возвращает ошибку
-   */
   @Test
+  @Description("если авторизоваться под несуществующим пользователем, запрос возвращает ошибку")
   public void loginNotExistLoginThen404NotFound() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     BaseCourier notExistLoginBody = new BaseCourier(courier.getLogin() + "abc",
@@ -149,10 +136,8 @@ public class LoginCourierTest {
     Assert.assertEquals("Учетная запись не найдена", response.getMessage());
   }
 
-  /**
-   * успешный запрос возвращает id
-   */
   @Test
+  @Description("успешный запрос возвращает id")
   public void whenLoginReturnId() {
     courierLoginResponse = steps.loginCourierInSystemStep(courier).as(CourierLoginResponse.class);
     ResponseBodyExtractionOptions response = steps.loginCourierInSystemStep(courier)

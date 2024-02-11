@@ -40,6 +40,8 @@ public class Constants {
    * курьера")
    */
   public static final String NO_DATA_DELETE_COURIER = "Not Found.";
+  public static final String TOO_LITTLE_DATA_CREATE_COURIER = "Недостаточно данных для создания учетной записи";
+  public static final String LOGIN_IS_USING = "Этот логин уже используется. Попробуйте другой.";
 
   public static final String TOO_LITTLE_DATA = "Недостаточно данных для поиска";
 

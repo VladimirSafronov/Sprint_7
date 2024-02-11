@@ -5,30 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc76a0f8-c763-4de2-9bba-278b87a116d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/constant/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/BaseCourier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Courier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CourierCreatedResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CourierLoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CreatedOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ListCreatedOrdersResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/MapCreatedOrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/OrderCreatedResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/specification/Specification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AcceptOrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CreateCourierTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CreateOrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DeleteCourierTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ListOrdersTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LoginCourierTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Steps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constant/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constant/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AcceptOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AcceptOrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateCourierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateCourierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateOrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DeleteCourierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DeleteCourierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetOrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ListOrdersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ListOrdersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LoginCourierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LoginCourierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/03580e5e-191e-44e7-90cc-5ea6387233f0-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/04984354-2234-4b38-946a-b73a148dae73-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/06167a70-4863-428d-842e-a82cb3bd875b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/0735dfa1-e2cc-40cd-95ea-6df13d279a2e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/07cef39f-ac14-4306-85f0-414afb765f87-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/0a291380-68df-4d4c-9922-132558b824cd-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/0c463a7a-0c27-4d7f-a20e-19b3403ecdc6-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/1171a8e1-a6a2-4c7c-93af-37d0734acb6b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/208a85d5-78f9-4353-8ab9-d380d74eb51a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/270a64c1-8f6a-48b1-8189-0eddb241b621-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/30b8c60e-ff27-46a1-992f-c02419e76179-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/35dc355f-6c9b-4a4d-8385-73f198db3f05-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/3b9992e4-75d2-4541-a22e-8e004c271bc0-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/3f1dce35-1243-475c-a5d9-1cec867fbd2b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/4aa877b1-8b71-434a-bacf-f67576d4608a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/4ee949e4-85df-470d-a295-7f8bc8c42f71-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/5567bf3f-66c2-4186-89b4-97c5b6a1ee6f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/64f05483-0227-4332-a7cd-0cedb26eded6-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/703f96df-4234-4248-9295-b7ffbf470571-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/7667154b-2afa-4471-b62b-8b52a0324321-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/7f1cc80c-9854-4447-bcf5-1b6775deb8f5-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/82975afb-2466-43b0-84ff-fd7d9680d1ef-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/83368211-a887-4cdd-b706-9eba02054ff9-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/8353eebf-5274-4752-9fc0-f7418cf6ca62-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/842bd718-8e02-4961-8fa4-dc56c17ce182-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/8bf563c5-060a-4d53-b808-d3653901d2ef-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/8e4bb81e-c277-4161-a5e9-63a32d70bada-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/8f1811ee-45fe-4b42-8c65-a5c359a5e9d4-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/9ee06aa4-7c29-464f-93d4-a9159f8029cb-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/a2e99a7d-c920-49bd-a253-b01a9efede7c-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/allure.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/allure-results/allure.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/c59a3d79-f0d9-499a-8da6-1ed24bbfe5da-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/allure-results/ecaf1a43-23b1-4f4b-9036-f4027892777f-result.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,21 +57,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2cBWtsA6Qgk22reDw10mjEFHXRw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,6 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707585673883</updated>
       <workItem from="1707585675959" duration="885000" />
+      <workItem from="1707653867170" duration="3380000" />
     </task>
     <servers />
   </component>

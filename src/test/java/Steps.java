@@ -16,119 +16,89 @@ public class Steps {
   /**
    * Адрес ручки создания курьера
    */
-  static final String createCourierUrl = "/api/v1/courier";
+  static final String CREATE_COURIER_URL = "/api/v1/courier";
   /**
    * Адрес ручки удаления курьера
    */
-  static final String deleteCourierUrl = "/api/v1/courier/";
+  static final String DELETE_COURIER_URL = "/api/v1/courier/";
   /**
    * Адрес ручки логина курьера в системе
    */
-  static final String loginCourierInSystemUrl = "/api/v1/courier/login";
+  static final String LOGIN_COURIER_IN_SYSTEM_URL = "/api/v1/courier/login";
   /**
    * Адрес ручки создания заказа, и получения списка заказов
    */
-  static final String orderUrl = "/api/v1/orders";
+  static final String ORDER_URL = "/api/v1/orders";
   /**
    * Адрес ручки отмены заказа
    */
-  static final String cancelOrderUrl = "/api/v1/orders/cancel";
+  static final String CANCEL_ORDER_URL = "/api/v1/orders/cancel";
   /**
    * Адрес ручки принятия заказа
    */
-  static final String acceptOrderUrl = "/api/v1/orders/accept/";
+  static final String ACCEPT_ORDER_URL = "/api/v1/orders/accept/";
   /**
    * Адрес ручки получения заказа по его track номеру
    */
-  static final String getOrderWithTrackUrl = "/api/v1/orders/track";
+  static final String GET_ORDER_WITH_TRACK_URL = "/api/v1/orders/track";
 
-  /**
-   * Создание курьера
-   */
-  @Step
+  @Step("Создание курьера")
   public Response createCourierStep(Object body) {
-    return doPostRequest(createCourierUrl, body);
+    return doPostRequest(CREATE_COURIER_URL, body);
   }
 
-  /**
-   * Регистрация курьера в системе
-   */
-  @Step
+  @Step("Регистрация курьера в системе")
   public Response loginCourierInSystemStep(Object body) {
-    return doPostRequest(loginCourierInSystemUrl, body);
+    return doPostRequest(LOGIN_COURIER_IN_SYSTEM_URL, body);
   }
 
-  /**
-   * Удаление курьера
-   */
-  @Step
+  @Step("Удаление курьера")
   public Response deleteCourierStep(Long id) {
-    return doDeleteRequest(deleteCourierUrl, id);
+    return doDeleteRequest(DELETE_COURIER_URL, id);
   }
 
-  /**
-   * Удаление курьера без id
-   */
-  @Step
+  @Step("Удаление курьера без id")
   public Response deleteCourierStep() {
-    return doDeleteRequest(deleteCourierUrl);
+    return doDeleteRequest(DELETE_COURIER_URL);
   }
 
-  /**
-   * Создание заказа
-   */
-  @Step
+  @Step("Создание заказа")
   public Response createOrder(Object body) {
-    return doPostRequest(orderUrl, body);
+    return doPostRequest(ORDER_URL, body);
   }
 
-  /**
-   * Получение списка заказов
-   */
-  @Step
+  @Step("Получение списка заказов")
   public Response getListOrders() {
-    return doGetRequest(orderUrl);
+    return doGetRequest(ORDER_URL);
   }
 
-  /**
-   * Отменить заказ
-   */
-  @Step
+  @Step("Отменить заказ")
   public void cancelOrder(Long id) {
-    doPutRequest(cancelOrderUrl, id);
+    doPutRequest(CANCEL_ORDER_URL, id);
   }
 
-  /**
-   * Принять заказ
-   */
-  @Step
+  @Step("Принять заказ")
   public Response acceptOrder(Long orderId, Long courierId) {
-    return doPutRequest(acceptOrderUrl, orderId, courierId);
+    return doPutRequest(ACCEPT_ORDER_URL, orderId, courierId);
   }
 
-  /**
-   * Принять заказ без id курьера
-   */
-  @Step
+  @Step("Принять заказ без id курьера")
   public Response acceptOrderNoCourierId(Long orderId) {
-    return doPutRequestNoCourierId(acceptOrderUrl, orderId);
+    return doPutRequestNoCourierId(ACCEPT_ORDER_URL, orderId);
   }
 
-  /**
-   * Принять заказ без id заказа
-   */
-  @Step
+  @Step("Принять заказ без id заказа")
   public Response acceptOrderNoOrderId(Long courierId) {
-    return doPutRequestNoOrderId(acceptOrderUrl, courierId);
+    return doPutRequestNoOrderId(ACCEPT_ORDER_URL, courierId);
   }
 
-  @Step
+  @Step("Принять заказ по track номеру")
   public Response getOrderWithTrack(Long track) {
-    return doGetRequest(getOrderWithTrackUrl, track);
+    return doGetRequest(GET_ORDER_WITH_TRACK_URL, track);
   }
 
-  @Step
+  @Step("Принять заказ без track номера")
   public Response getOrderWithoutTrack() {
-    return doGetRequest(getOrderWithTrackUrl);
+    return doGetRequest(GET_ORDER_WITH_TRACK_URL);
   }
 }

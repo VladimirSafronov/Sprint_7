@@ -1,8 +1,10 @@
 import static constant.Constants.CREATED_STATUS_LINE;
+import static constant.Constants.LOGIN_IS_USING;
 import static constant.Constants.SUCCESS_BODY;
 import static constant.Constants.TEST_COURIER_FIRST_NAME;
 import static constant.Constants.TEST_COURIER_LOGIN;
 import static constant.Constants.TEST_COURIER_PASSWORD;
+import static constant.Constants.TOO_LITTLE_DATA_CREATE_COURIER;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -11,6 +13,7 @@ import dto.Courier;
 import dto.CourierCreatedResponse;
 import dto.CourierLoginResponse;
 import dto.ErrorResponse;
+import io.qameta.allure.Description;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;
@@ -42,10 +45,8 @@ public class CreateCourierTest {
     steps.deleteCourierStep(courierLoginResponse.getId());
   }
 
-  /**
-   * курьера можно создать
-   */
   @Test
+  @Description("курьера можно создать")
   public void createCourierWithCorrectDataThenCreated() {
     CourierCreatedResponse response = steps.createCourierStep(courier)
         .then()
@@ -55,10 +56,8 @@ public class CreateCourierTest {
     Assert.assertTrue(response.isOk());
   }
 
-  /**
-   * нельзя создать двух одинаковых курьеров
-   */
   @Test
+  @Description("нельзя создать двух одинаковых курьеров")
   public void createCourierWithSameDataThen409Conflict() {
     steps.createCourierStep(courier)
         .then()
@@ -73,10 +72,8 @@ public class CreateCourierTest {
     Assert.assertNotEquals(HttpStatus.SC_CREATED, responseCode);
   }
 
-  /**
-   * чтобы создать курьера, нужно передать в ручку все обязательные поля
-   */
   @Test
+  @Description("чтобы создать курьера, нужно передать в ручку все обязательные поля")
   public void createCourierWithRequiredFieldsThen201Created() {
     courier.setFirstName(null);
     String actualStatusLine = steps.createCourierStep(courier)
@@ -87,35 +84,20 @@ public class CreateCourierTest {
     Assert.assertEquals(CREATED_STATUS_LINE, actualStatusLine);
   }
 
-  /**
-   * запрос возвращает правильный код ответа
-   */
   @Test
-  public void createCourierWithCorrectDataThen201Created() {
-    int actualCode = steps.createCourierStep(courier)
-        .then()
-        .body("ok", equalTo(true))
-        .extract().statusCode();
-    Assert.assertEquals(HttpStatus.SC_CREATED, actualCode);
-  }
-
-  /**
-   * успешный запрос возвращает {ok:true}
-   */
-  @Test
+  @Description("успешный запрос возвращает {ok:true}")
   public void createCourierWithCorrectDataThenCorrectResponseBody() {
     String response = steps.createCourierStep(courier)
         .then()
         .statusCode(HttpStatus.SC_CREATED)
+        .body("ok", equalTo(true))
         .extract().asString();
 
     Assert.assertEquals(SUCCESS_BODY, response);
   }
 
-  /**
-   * если логина нет, запрос возвращает ошибку
-   */
   @Test
+  @Description("если логина нет, запрос возвращает ошибку")
   public void createCourierWithoutLoginThen400BadRequest() {
     steps.createCourierStep(courier);
     Courier courierWithoutLogin = new Courier("", courier.getPassword(), courier.getFirstName());
@@ -125,13 +107,11 @@ public class CreateCourierTest {
         .body("code", notNullValue())
         .body("message", notNullValue())
         .extract().as(ErrorResponse.class);
-    Assert.assertEquals("Недостаточно данных для создания учетной записи", response.getMessage());
+    Assert.assertEquals(TOO_LITTLE_DATA_CREATE_COURIER, response.getMessage());
   }
 
-  /**
-   * если пароля нет, запрос возвращает ошибку
-   */
   @Test
+  @Description("если пароля нет, запрос возвращает ошибку")
   public void createCourierWithoutPasswordThen400BadRequest() {
     steps.createCourierStep(courier);
     Courier courierWithoutPassword = new Courier(courier.getLogin(), "", courier.getFirstName());
@@ -142,13 +122,11 @@ public class CreateCourierTest {
         .body("code", notNullValue())
         .body("message", notNullValue())
         .extract().as(ErrorResponse.class);
-    Assert.assertEquals("Недостаточно данных для создания учетной записи", response.getMessage());
+    Assert.assertEquals(TOO_LITTLE_DATA_CREATE_COURIER, response.getMessage());
   }
 
-  /**
-   * если создать пользователя с логином, который уже есть, возвращается ошибка
-   */
   @Test
+  @Description("если создать пользователя с логином, который уже есть, возвращается ошибка")
   public void createCourierWithSameLoginThen409Conflict() {
     steps.createCourierStep(courier)
         .then()
@@ -161,6 +139,6 @@ public class CreateCourierTest {
         .body("message", notNullValue())
         .extract().as(ErrorResponse.class);
 
-    Assert.assertEquals("Этот логин уже используется. Попробуйте другой.", response.getMessage());
+    Assert.assertEquals(LOGIN_IS_USING, response.getMessage());
   }
 }
